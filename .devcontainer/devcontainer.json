@@ -1,0 +1,16 @@
+{
+  // GitHub Codespaces for PDS Homework 1: Ubuntu 24.04 with gcc (OpenMP,
+  // Pthreads), OpenCilk 3.0, and matio, installed by env/setup.sh.
+  // For the final measurements, rebuild the codespace on a machine with
+  // more cores (Codespaces: Change machine type).
+  "name": "PDS homework 1 (t-SNE, Barnes-Hut)",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "postCreateCommand": "bash env/setup.sh",
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": { "version": "latest" }
+  },
+  "hostRequirements": { "cpus": 2 },
+  "customizations": {
+    "vscode": { "extensions": ["ms-vscode.cpptools"] }
+  }
+}
