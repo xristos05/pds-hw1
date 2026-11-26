@@ -24,6 +24,7 @@
 #include <unistd.h>
 
 int nthreads = 1;
+char **main_argv;
 
 static double now(void) {
   struct timespec t;
@@ -123,6 +124,7 @@ int main(int argc, char **argv) {
                     "[-direct] [-o DIR] [-csv FILE]\n", argv[0]);
     return 1;
   }
+  main_argv = argv;
   const char *base = argv[1];
   int L = 0, reps = 5, do_direct = 0;
   double theta = -1.0;

@@ -60,6 +60,7 @@ typedef struct {
 
 /* number of threads, set by main from -t (ignored by seq) */
 extern int nthreads;
+extern char **main_argv;   /* for the Cilk version, which may restart itself */
 
 /* ---- the backend interface: implemented by seq.c, omp.c, pth.c, cilk.c ---- */
 extern const char *backend_name;

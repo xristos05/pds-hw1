@@ -54,7 +54,16 @@ version ⇒ all four give **bit-identical** results for any thread count (check:
 - **Pthreads:** threads created per loop; work handed out by an atomic counter (`__atomic_fetch_add`),
   join = barrier. `par_blocks` for one-block-per-thread loops.
 - **OpenCilk:** `cilk_for` + `#pragma cilk grainsize 1` over chunks; work stealing balances. Threads via
-  `CILK_NWORKERS` (set before the runtime starts).
+  `CILK_NWORKERS`, which the runtime reads BEFORE main: so `backend_init` sets it and restarts the
+  program (`execv`) if it was not already right, then checks `__cilkrts_get_nworkers()`.
+
+## The bug (candidate for the report)
+First measurements: Cilk with p = 1 took 0.019 s on k49, the same as OpenMP with 16 threads and 7x
+faster than the sequential version, at every p. Impossible for one worker. A 5-line test showed that
+`setenv("CILK_NWORKERS")` inside main is ignored: the OpenCilk runtime starts before main and had
+already read the variable (unset: all 16 hardware threads). So every "Cilk p" run used 16 workers.
+Fix: set the variable and re-exec the program, then assert the worker count. Lesson: check that the
+parallel runtime really runs with p threads, and sanity-check timings (p = 1 must match sequential).
 
 ## Why the speedup stops (to measure and confirm on your machine)
 - 8 cores / 16 hardware threads: beyond 8, two threads share a core (SMT): small gains for compute,

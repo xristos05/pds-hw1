@@ -12,12 +12,30 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 const char *backend_name = "cilk";
+/* The OpenCilk runtime starts BEFORE main and reads CILK_NWORKERS then, so
+ * setting it here is too late (first version of this code: -t was ignored
+ * and every run used all hardware threads). Fix: if the variable does not
+ * already say p, set it and restart the program (execv), so the new runtime
+ * reads it. Then check that the runtime really has p workers. */
+extern unsigned __cilkrts_get_nworkers(void);
 void backend_init(int p) {
   char s[16];
   snprintf(s, sizeof s, "%d", p);
-  setenv("CILK_NWORKERS", s, 1);       /* read when the runtime starts */
+  const char *cur = getenv("CILK_NWORKERS");
+  if (!cur || strcmp(cur, s) != 0) {
+    setenv("CILK_NWORKERS", s, 1);
+    execv("/proc/self/exe", main_argv);
+    perror("execv");                     /* only if the restart failed */
+    exit(1);
+  }
+  if ((int)__cilkrts_get_nworkers() != p) {
+    fprintf(stderr, "cilk: asked for %d workers, runtime has %u\n", p, __cilkrts_get_nworkers());
+    exit(1);
+  }
 }
 
 #define PAR_MIN 4096
