@@ -93,3 +93,22 @@ com-Amazon [cilk, 16 threads]  n = 334863, nnz = 1851744, L = 9 (512x512 grid, 2
   vs reference: beta max|diff| 0.00e+00   Fattr 2.29e-15   Frep 8.13e-03   Z 4.85e-03  (Z = 7455227997, ref 7491529171)
   vs results/com-Amazon-seq.mat: max|diff| beta 0.0e+00  Fattr 0.0e+00  Frep 0.0e+00  Z 0.0e+00  -> IDENTICAL
   saved results/com-Amazon-cilk.mat
+coPapersDBLP [seq, 1 threads]  n = 540486, nnz = 30491458, L = 9 (512x512 grid, 4.0 points per occupied leaf), theta = 0.5, u = 10
+  time (s):  P 1.1052  attr 0.0480  build 0.0191  com 0.0077  walk 1.1880  grad 0.0043  | total 2.3724
+  vs reference: beta max|diff| 0.00e+00   Fattr 1.87e-15   Frep 5.58e-03   Z 3.63e-03  (Z = 3.736074783e+10, ref 3.749679339e+10)
+  saved results/coPapersDBLP-seq.mat
+coPapersDBLP [omp, 16 threads]  n = 540486, nnz = 30491458, L = 9 (512x512 grid, 4.0 points per occupied leaf), theta = 0.5, u = 10
+  time (s):  P 0.1363  attr 0.0140  build 0.0068  com 0.0012  walk 0.1476  grad 0.0010  | total 0.3069
+  vs reference: beta max|diff| 0.00e+00   Fattr 1.87e-15   Frep 5.58e-03   Z 3.63e-03  (Z = 3.736074783e+10, ref 3.749679339e+10)
+  vs results/coPapersDBLP-seq.mat: max|diff| beta 0.0e+00  Fattr 0.0e+00  Frep 0.0e+00  Z 0.0e+00  -> IDENTICAL
+  saved results/coPapersDBLP-omp.mat
+coPapersDBLP [pth, 16 threads]  n = 540486, nnz = 30491458, L = 9 (512x512 grid, 4.0 points per occupied leaf), theta = 0.5, u = 10
+  time (s):  P 0.1354  attr 0.0149  build 0.0089  com 0.0020  walk 0.1588  grad 0.0013  | total 0.3214
+  vs reference: beta max|diff| 0.00e+00   Fattr 1.87e-15   Frep 5.58e-03   Z 3.63e-03  (Z = 3.736074783e+10, ref 3.749679339e+10)
+  vs results/coPapersDBLP-seq.mat: max|diff| beta 0.0e+00  Fattr 0.0e+00  Frep 0.0e+00  Z 0.0e+00  -> IDENTICAL
+  saved results/coPapersDBLP-pth.mat
+coPapersDBLP [cilk, 16 threads]  n = 540486, nnz = 30491458, L = 9 (512x512 grid, 4.0 points per occupied leaf), theta = 0.5, u = 10
+  time (s):  P 0.1416  attr 0.0145  build 0.0065  com 0.0008  walk 0.1546  grad 0.0013  | total 0.3193
+  vs reference: beta max|diff| 0.00e+00   Fattr 1.87e-15   Frep 5.58e-03   Z 3.63e-03  (Z = 3.736074783e+10, ref 3.749679339e+10)
+  vs results/coPapersDBLP-seq.mat: max|diff| beta 0.0e+00  Fattr 0.0e+00  Frep 0.0e+00  Z 0.0e+00  -> IDENTICAL
+  saved results/coPapersDBLP-cilk.mat
