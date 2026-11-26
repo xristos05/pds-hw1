@@ -36,3 +36,22 @@ com-Amazon [cilk, 16 threads]  n = 334863, nnz = 1851744, L = 9 (512x512 grid, 2
   vs reference: beta max|diff| 0.00e+00   Fattr 2.29e-15   Frep 8.13e-03   Z 4.85e-03  (Z = 7455227997, ref 7491529171)
   vs results/com-Amazon-seq.mat: max|diff| beta 0.0e+00  Fattr 0.0e+00  Frep 0.0e+00  Z 0.0e+00  -> IDENTICAL
   saved results/com-Amazon-cilk.mat
+k49_norm_10NN [seq, 1 threads]  n = 38547, nnz = 618158, L = 7 (128x128 grid, 4.1 points per occupied leaf), theta = 0.5, u = 10
+  time (s):  P 0.0803  attr 0.0013  build 0.0006  com 0.0004  walk 0.0641  grad 0.0004  | total 0.1471
+  vs reference: beta max|diff| 1.22e-04   Fattr 1.29e-05   Frep 8.86e-03   Z 5.08e-03  (Z = 73749347.21, ref 74125562.42)
+  saved results/k49_norm_10NN-seq.mat
+k49_norm_10NN [omp, 16 threads]  n = 38547, nnz = 618158, L = 7 (128x128 grid, 4.1 points per occupied leaf), theta = 0.5, u = 10
+  time (s):  P 0.0139  attr 0.0080  build 0.0320  com 0.0202  walk 0.0080  grad 0.0004  | total 0.0826
+  vs reference: beta max|diff| 1.22e-04   Fattr 1.29e-05   Frep 8.86e-03   Z 5.08e-03  (Z = 73749347.21, ref 74125562.42)
+  vs results/k49_norm_10NN-seq.mat: max|diff| beta 0.0e+00  Fattr 0.0e+00  Frep 0.0e+00  Z 0.0e+00  -> IDENTICAL
+  saved results/k49_norm_10NN-omp.mat
+k49_norm_10NN [pth, 16 threads]  n = 38547, nnz = 618158, L = 7 (128x128 grid, 4.1 points per occupied leaf), theta = 0.5, u = 10
+  time (s):  P 0.0104  attr 0.0008  build 0.0031  com 0.0003  walk 0.0091  grad 0.0007  | total 0.0244
+  vs reference: beta max|diff| 1.22e-04   Fattr 1.29e-05   Frep 8.86e-03   Z 5.08e-03  (Z = 73749347.21, ref 74125562.42)
+  vs results/k49_norm_10NN-seq.mat: max|diff| beta 0.0e+00  Fattr 0.0e+00  Frep 0.0e+00  Z 0.0e+00  -> IDENTICAL
+  saved results/k49_norm_10NN-pth.mat
+k49_norm_10NN [cilk, 16 threads]  n = 38547, nnz = 618158, L = 7 (128x128 grid, 4.1 points per occupied leaf), theta = 0.5, u = 10
+  time (s):  P 0.0101  attr 0.0002  build 0.0011  com 0.0002  walk 0.0083  grad 0.0001  | total 0.0200
+  vs reference: beta max|diff| 1.22e-04   Fattr 1.29e-05   Frep 8.86e-03   Z 5.08e-03  (Z = 73749347.21, ref 74125562.42)
+  vs results/k49_norm_10NN-seq.mat: max|diff| beta 0.0e+00  Fattr 0.0e+00  Frep 0.0e+00  Z 0.0e+00  -> IDENTICAL
+  saved results/k49_norm_10NN-cilk.mat
