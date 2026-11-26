@@ -1,0 +1,16 @@
+k49_norm_10NN: seq total 0.1353 s; best cilk p=16 0.0173 s (speedup 7.84); attr 2.03 ns/nnz; P 114.67 ns/nnz; walk 1.621 us/point
+   omp: speedup p=8 6.66, p=16 7.30; walk S16 7.87, P S16 7.97, attr S16 5.40, build p=16 0.86 ms vs seq 0.35
+   pth: speedup p=8 5.62, p=16 6.09; walk S16 7.11, P S16 7.63, attr S16 1.73, build p=16 2.69 ms vs seq 0.35
+   cilk: speedup p=8 6.51, p=16 7.84; walk S16 8.29, P S16 7.94, attr S16 6.23, build p=16 0.49 ms vs seq 0.35
+com-Amazon: seq total 0.7781 s; best omp p=16 0.0976 s (speedup 7.97); attr 2.95 ns/nnz; P 26.85 ns/nnz; walk 2.136 us/point
+   omp: speedup p=8 6.36, p=16 7.97; walk S16 8.73, P S16 6.75, attr S16 3.79, build p=16 5.00 ms vs seq 4.48
+   pth: speedup p=8 5.78, p=16 7.18; walk S16 8.13, P S16 6.48, attr S16 3.13, build p=16 7.75 ms vs seq 4.48
+   cilk: speedup p=8 6.45, p=16 7.69; walk S16 8.33, P S16 6.39, attr S16 3.81, build p=16 4.68 ms vs seq 4.48
+coPapersDBLP: seq total 2.0215 s; best omp p=16 0.3006 s (speedup 6.73); attr 1.51 ns/nnz; P 25.66 ns/nnz; walk 2.189 us/point
+   omp: speedup p=8 5.58, p=16 6.73; walk S16 8.17, P S16 5.86, attr S16 3.25, build p=16 5.65 ms vs seq 6.99
+   pth: speedup p=8 5.42, p=16 6.61; walk S16 7.88, P S16 6.03, attr S16 3.19, build p=16 8.37 ms vs seq 6.99
+   cilk: speedup p=8 5.74, p=16 6.43; walk S16 7.55, P S16 5.75, attr S16 3.25, build p=16 5.54 ms vs seq 6.99
+direct k49 p=1: direct 1.6788 s, BH 0.0625 s, ratio 26.9
+direct k49 p=16: direct 0.2467 s, BH 0.0081 s, ratio 30.5
+crossover p=1: direct faster for m <= 500; 250:0.107/0.071, 500:0.298/0.277, 1000:0.840/1.110, 2000:1.905/4.451, 4000:4.865/17.825, 8000:10.113/71.349, 16000:24.626/286.565, 32000:49.909/1158.084, 38547:62.839/1690.381
+crossover p=16: direct faster for m <= 500; 250:0.167/0.102, 500:0.248/0.197, 1000:0.375/0.396, 2000:0.535/1.184, 4000:0.755/2.527, 8000:1.553/10.400, 16000:3.274/41.388, 32000:6.320/167.213, 38547:7.757/248.357

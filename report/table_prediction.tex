@@ -1,0 +1,13 @@
+\begin{tabular}{l l r r r r}
+\toprule
+phase & model & pred.\ $p{=}1$ & meas. & pred.\ $p{=}16$ & meas.\\
+\midrule
+P & $\propto$ nnz & 770 & 819 & 150 & 134\\
+attraction & $\propto$ nnz & 90 & 48 & 15 & 14\\
+tree build & $a n + b 4^L$ & 6 & 7 & 5.0 & 5.6\\
+centers of mass & $\propto 4^L + n$ & 2 & 2 & 0.6 & 1.4\\
+walk & $c\, n \log_2 n$ & 1160 & 1179 & 140 & 145\\
+\midrule
+total &  & 2000 & 2056 & 310 & 301\\
+\bottomrule
+\end{tabular}
