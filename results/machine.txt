@@ -1,4 +1,4 @@
-date: 2026-11-26T08:01:02+02:00
+date: 2026-11-26T08:01:18+02:00
 CPU(s):                                  16
 Model name:                              AMD Ryzen 7 5700X 8-Core Processor
 Thread(s) per core:                      2
@@ -6,7 +6,7 @@ Core(s) per socket:                      8
 L2 cache:                                4 MiB (8 instances)
 L3 cache:                                32 MiB (1 instance)
                total        used        free      shared  buff/cache   available
-Mem:            15Gi       1.0Gi        14Gi       4.2Mi       254Mi        14Gi
+Mem:            15Gi       1.3Gi        14Gi       4.2Mi       460Mi        14Gi
 gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
 clang version 19.1.7 (https://github.com/OpenCilk/opencilk-project cd8ccfc1fd8293654dde7bf26657f08f89c7e54b)
 CFLAGS   ?= -O3 -march=native -ffp-contract=off -Wall -Wno-misleading-indentation
