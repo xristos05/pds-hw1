@@ -112,3 +112,41 @@ coPapersDBLP [cilk, 16 threads]  n = 540486, nnz = 30491458, L = 9 (512x512 grid
   vs reference: beta max|diff| 0.00e+00   Fattr 1.87e-15   Frep 5.58e-03   Z 3.63e-03  (Z = 3.736074783e+10, ref 3.749679339e+10)
   vs results/coPapersDBLP-seq.mat: max|diff| beta 0.0e+00  Fattr 0.0e+00  Frep 0.0e+00  Z 0.0e+00  -> IDENTICAL
   saved results/coPapersDBLP-cilk.mat
+k49_norm_10NN [seq, 1 threads]  n = 38547, nnz = 618158, L = 7 (128x128 grid, 4.1 points per occupied leaf), theta = 0.5, u = 10
+  time (s):  P 0.0763  attr 0.0013  build 0.0005  com 0.0003  walk 0.0640  grad 0.0003  | total 0.1427
+  vs reference: beta max|diff| 1.22e-04   Fattr 1.29e-05   Frep 8.86e-03   Z 5.08e-03  (Z = 73749347.21, ref 74125562.42)
+  saved results/k49_norm_10NN-seq.mat
+k49_norm_10NN [omp, 16 threads]  n = 38547, nnz = 618158, L = 7 (128x128 grid, 4.1 points per occupied leaf), theta = 0.5, u = 10
+  time (s):  P 0.0143  attr 0.0080  build 0.0167  com 0.0001  walk 0.0077  grad 0.0001  | total 0.0469
+  vs reference: beta max|diff| 1.22e-04   Fattr 1.29e-05   Frep 8.86e-03   Z 5.08e-03  (Z = 73749347.21, ref 74125562.42)
+  vs results/k49_norm_10NN-seq.mat: max|diff| beta 0.0e+00  Fattr 0.0e+00  Frep 0.0e+00  Z 0.0e+00  -> IDENTICAL
+  saved results/k49_norm_10NN-omp.mat
+k49_norm_10NN [pth, 16 threads]  n = 38547, nnz = 618158, L = 7 (128x128 grid, 4.1 points per occupied leaf), theta = 0.5, u = 10
+  time (s):  P 0.0097  attr 0.0008  build 0.0030  com 0.0003  walk 0.0087  grad 0.0007  | total 0.0232
+  vs reference: beta max|diff| 1.22e-04   Fattr 1.29e-05   Frep 8.86e-03   Z 5.08e-03  (Z = 73749347.21, ref 74125562.42)
+  vs results/k49_norm_10NN-seq.mat: max|diff| beta 0.0e+00  Fattr 0.0e+00  Frep 0.0e+00  Z 0.0e+00  -> IDENTICAL
+  saved results/k49_norm_10NN-pth.mat
+k49_norm_10NN [cilk, 16 threads]  n = 38547, nnz = 618158, L = 7 (128x128 grid, 4.1 points per occupied leaf), theta = 0.5, u = 10
+  time (s):  P 0.0103  attr 0.0002  build 0.0014  com 0.0002  walk 0.0080  grad 0.0001  | total 0.0203
+  vs reference: beta max|diff| 1.22e-04   Fattr 1.29e-05   Frep 8.86e-03   Z 5.08e-03  (Z = 73749347.21, ref 74125562.42)
+  vs results/k49_norm_10NN-seq.mat: max|diff| beta 0.0e+00  Fattr 0.0e+00  Frep 0.0e+00  Z 0.0e+00  -> IDENTICAL
+  saved results/k49_norm_10NN-cilk.mat
+com-Amazon [seq, 1 threads]  n = 334863, nnz = 1851744, L = 9 (512x512 grid, 2.7 points per occupied leaf), theta = 0.5, u = 10
+  time (s):  P 0.0872  attr 0.0069  build 0.0074  com 0.0045  walk 0.7698  grad 0.0024  | total 0.8782
+  vs reference: beta max|diff| 0.00e+00   Fattr 2.29e-15   Frep 8.13e-03   Z 4.85e-03  (Z = 7455227997, ref 7491529171)
+  saved results/com-Amazon-seq.mat
+com-Amazon [omp, 16 threads]  n = 334863, nnz = 1851744, L = 9 (512x512 grid, 2.7 points per occupied leaf), theta = 0.5, u = 10
+  time (s):  P 0.0216  attr 0.0079  build 0.0127  com 0.0013  walk 0.0850  grad 0.0004  | total 0.1289
+  vs reference: beta max|diff| 0.00e+00   Fattr 2.29e-15   Frep 8.13e-03   Z 4.85e-03  (Z = 7455227997, ref 7491529171)
+  vs results/com-Amazon-seq.mat: max|diff| beta 0.0e+00  Fattr 0.0e+00  Frep 0.0e+00  Z 0.0e+00  -> IDENTICAL
+  saved results/com-Amazon-omp.mat
+com-Amazon [pth, 16 threads]  n = 334863, nnz = 1851744, L = 9 (512x512 grid, 2.7 points per occupied leaf), theta = 0.5, u = 10
+  time (s):  P 0.0092  attr 0.0019  build 0.0098  com 0.0020  walk 0.0967  grad 0.0010  | total 0.1206
+  vs reference: beta max|diff| 0.00e+00   Fattr 2.29e-15   Frep 8.13e-03   Z 4.85e-03  (Z = 7455227997, ref 7491529171)
+  vs results/com-Amazon-seq.mat: max|diff| beta 0.0e+00  Fattr 0.0e+00  Frep 0.0e+00  Z 0.0e+00  -> IDENTICAL
+  saved results/com-Amazon-pth.mat
+com-Amazon [cilk, 16 threads]  n = 334863, nnz = 1851744, L = 9 (512x512 grid, 2.7 points per occupied leaf), theta = 0.5, u = 10
+  time (s):  P 0.0107  attr 0.0019  build 0.0088  com 0.0014  walk 0.0964  grad 0.0005  | total 0.1197
+  vs reference: beta max|diff| 0.00e+00   Fattr 2.29e-15   Frep 8.13e-03   Z 4.85e-03  (Z = 7455227997, ref 7491529171)
+  vs results/com-Amazon-seq.mat: max|diff| beta 0.0e+00  Fattr 0.0e+00  Frep 0.0e+00  Z 0.0e+00  -> IDENTICAL
+  saved results/com-Amazon-cilk.mat
